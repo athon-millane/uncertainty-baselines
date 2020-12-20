@@ -35,7 +35,7 @@ class _CifarDataset(base.BaseDataset):
       shuffle_buffer_size: int = None,
       num_parallel_parser_calls: int = 64,
       normalize: bool = True,
-      try_gcs: bool = False,
+#       try_gcs: bool = False,
       download_data: bool = False,
       **unused_kwargs: Dict[str, Any]):
     """Create a CIFAR10 or CIFAR100 tf.data.Dataset builder.
@@ -58,7 +58,7 @@ class _CifarDataset(base.BaseDataset):
       download_data: Whether or not to download data before loading.
     """
     self._normalize = normalize
-    dataset_builder = tfds.builder(name, try_gcs=try_gcs)
+    dataset_builder = tfds.builder(name, try_gcs=False)
     split = base.get_validation_percent_split(
         dataset_builder, validation_percent, split)
     super(_CifarDataset, self).__init__(
