@@ -58,7 +58,7 @@ class _CifarDataset(base.BaseDataset):
       download_data: Whether or not to download data before loading.
     """
     self._normalize = normalize
-    dataset_builder = tfds.builder(name, try_gcs=False)
+    dataset_builder = tfds.builder(name)
     split = base.get_validation_percent_split(
         dataset_builder, validation_percent, split)
     super(_CifarDataset, self).__init__(
